@@ -33,7 +33,8 @@ with open(filepath) as fp:
        print(x['id'])
        print(x['bal'])
        print(x['time'])
-       cur.execute("INSERT INTO accounts (id, balance) VALUES (" x['id'] ,  x['bal'] ")")
+      # cur.execute("INSERT INTO accounts (id, balance) VALUES (" x['id'] ,  x['bal'] ")")
+       cur.execute("INSERT INTO accounts (id, balance) VALUES (%s,%s)",(x['id'],x['bal']))
        line = fp.readline()
        cnt += 1
 
